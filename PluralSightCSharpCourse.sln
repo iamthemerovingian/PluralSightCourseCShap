@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnIntroductionToCSharpandDotNet", "Hello\AnIntroductionToCSharpandDotNet.csproj", "{3D3B0C3D-B7F3-4535-951A-2D4458C48252}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1AnIntroductionToCSharpandDotNet", "Hello\1AnIntroductionToCSharpandDotNet.csproj", "{3D3B0C3D-B7F3-4535-951A-2D4458C48252}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesandObjects", "Grades\ClassesandObjects.csproj", "{67DB7689-27B3-4CBF-8617-7E060714AEB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2ClassesandObjects", "Grades\2ClassesandObjects.csproj", "{67DB7689-27B3-4CBF-8617-7E060714AEB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3Assemblies", "Grades.Test\3Assemblies.csproj", "{ED852A27-3904-41F6-8E5B-CD61299D6D6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{67DB7689-27B3-4CBF-8617-7E060714AEB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67DB7689-27B3-4CBF-8617-7E060714AEB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67DB7689-27B3-4CBF-8617-7E060714AEB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED852A27-3904-41F6-8E5B-CD61299D6D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED852A27-3904-41F6-8E5B-CD61299D6D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED852A27-3904-41F6-8E5B-CD61299D6D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED852A27-3904-41F6-8E5B-CD61299D6D6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

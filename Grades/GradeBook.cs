@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Grades
 {
-    class GradeBook
+    public class GradeBook //Internal classes can only be used by code in the same project. Public means any assembly can use this class.
     {
         public GradeBook()
         {
