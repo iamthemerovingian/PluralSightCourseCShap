@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,18 +46,23 @@ namespace Grades
             }
             set
             {
-                if (!string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value))
                 {
-                    if (name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = name;
-                        args.Newname = value;
-
-                        NameChanged(this, args);
-                    }
-                    name = value;
+                    throw new ArgumentException("Name Cannot be null or Empty");
                 }
+
+                //if (!string.IsNullOrWhiteSpace(value))
+                //{
+                if (name != value && NameChanged!= null)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = name;
+                    args.Newname = value;
+
+                    NameChanged(this, args);
+                }
+                name = value;
+                //}
             }
         }
 
@@ -64,5 +70,13 @@ namespace Grades
         public event NameChangedDelegate NameChanged;
 
         private List<float> grades; // This is a field.
+
+        public void WriteGrades(TextWriter destination)
+        {
+            for (int i = 0; i < grades.Count; i++)
+            {
+                destination.WriteLine(grades[i]);
+            }
+        }
     }
 }
