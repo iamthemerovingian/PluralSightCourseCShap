@@ -73,8 +73,11 @@ namespace Grades
                   
             }
         }
+
         public float AverageGrade;
+
         public float HighiestGrade;
+
         public float LowestGrade;
     }
 }

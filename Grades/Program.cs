@@ -13,20 +13,20 @@ namespace Grades
         static void Main(string[] args)
         {
             /*
-            GradeBook g1 = new GradeBook();
-            GradeBook g2 = g1;
+           GradeBook g1 = new GradeBook();
+           GradeBook g2 = g1;
 
-            g1 = new GradeBook();
-            g1.Name = "Milinda's Grade Book";
-            Console.WriteLine(g2.Name);
-            */
+           g1 = new GradeBook();
+           g1.Name = "Milinda's Grade Book";
+           Console.WriteLine(g2.Name);
+           */
 
             //SpeechSynthesizer synth = new SpeechSynthesizer();
             //synth.Speak("Hello this is the green book program");
 
-            GradeBook book = new GradeBook();
+            GradeTracker book = CreateGradebook();
 
-            GetBookName(book);
+            //GetBookName(book);
             AddGrades(book);
             SaveGrades(book);
             WriteResults(book);
@@ -55,7 +55,12 @@ namespace Grades
 
         }
 
-        private static void WriteResults(GradeBook book)
+        private static GradeBook CreateGradebook()
+        {
+            return new ThrowAwayGradeBook();
+        }
+
+        private static void WriteResults(GradeTracker book)
         {
             GradeStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
@@ -64,7 +69,7 @@ namespace Grades
             WriteResult(stats.Description, stats.LetterGrade);
         }
 
-        private static void SaveGrades(GradeBook book)
+        private static void SaveGrades(GradeTracker book)
         {
             using (StreamWriter outputFile = File.CreateText("grades.txt"))
             {
@@ -72,14 +77,14 @@ namespace Grades
             }
         }
 
-        private static void AddGrades(GradeBook book)
+        private static void AddGrades(GradeTracker book)
         {
             book.AddGrade(91);
             book.AddGrade(89.5f);
             book.AddGrade(75);
         }
 
-        private static void GetBookName(GradeBook book)
+        private static void GetBookName(GradeTracker book)
         {
             try
             {
@@ -87,7 +92,7 @@ namespace Grades
                 book.Name = Console.ReadLine();
 
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException)
             {
                 Console.WriteLine("you entered an invalid value");
                 Console.WriteLine();
