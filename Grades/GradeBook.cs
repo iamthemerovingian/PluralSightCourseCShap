@@ -10,6 +10,7 @@ namespace Grades
     {
         public GradeBook()
         {
+            name = "Unnamed Gradebook";
             grades = new List<float>();
         }
         public void AddGrade(float grade)
@@ -35,8 +36,33 @@ namespace Grades
             return stats;
         }
 
-        public string Name;
+        private string name;
+        public string Name//This is a property.
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    if (name != value)
+                    {
+                        NameChangedEventArgs args = new NameChangedEventArgs();
+                        args.ExistingName = name;
+                        args.Newname = value;
 
-        private List<float> grades;
+                        NameChanged(this, args);
+                    }
+                    name = value;
+                }
+            }
+        }
+
+        //public NameChangedDelegate NameChanged;
+        public event NameChangedDelegate NameChanged;
+
+        private List<float> grades; // This is a field.
     }
 }
